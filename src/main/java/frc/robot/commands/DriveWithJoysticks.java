@@ -10,13 +10,8 @@ import frc.robot.RobotContainer;
 //import frc.robot.subsystems.Drivetrain;
 
 public class DriveWithJoysticks extends CommandBase {
-  //public final Drivetrain driveTrain;
 
-  /** Creates a new DriveWithJoysticks. 
-   * @return */
-  //public DriveWithJoysticks(Drivetrain dt) {
-    public void DriveWithJoystick() {
-    //driveTrain = dt;
+    public DriveWithJoysticks() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(RobotContainer.driveTrain);
 

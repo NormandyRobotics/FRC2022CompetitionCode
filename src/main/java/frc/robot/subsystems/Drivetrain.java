@@ -22,8 +22,8 @@ public class Drivetrain extends SubsystemBase {
   CANSparkMax hDriveMotor;
 
   
-  Encoder leftDriveEncoder;
-  Encoder rightDriveEncoder;
+  public Encoder leftDriveEncoder;
+  public Encoder rightDriveEncoder;
   Encoder hDriveEncoder;
 
 
@@ -61,10 +61,12 @@ public class Drivetrain extends SubsystemBase {
   }
 
 
-  public void driveWithEncoders(int distance)
+  public void driveWithEncoders(double leftSpeed, double rightSpeed)
   {
+    drive.tankDrive(leftSpeed, rightSpeed);
+    /*
     double error;
-    /* where do we initialize the encoders?  */
+    // where do we initialize the encoders? 
     leftDriveEncoder.reset();
     rightDriveEncoder.reset();
 
@@ -89,6 +91,8 @@ public class Drivetrain extends SubsystemBase {
     leftDriveMotor.set(0);
     rightDriveMotor.set(0);
     
+*/
+ 
 
   }
 

@@ -10,7 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-//import frc.robot.commands.DriveWithEncoders;
+import frc.robot.commands.DriveWithEncoders;
 import frc.robot.commands.DriveWithJoysticks;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Shooter;
@@ -27,8 +27,9 @@ public class RobotContainer {
   //Drivetrain declare
   public final static Drivetrain driveTrain = new Drivetrain();
   private final DriveWithJoysticks driveWithJoysticks = new DriveWithJoysticks();
-  //private final DriveWithEncoders driveWithEncoders;
-  private final Shooter shooter;
+  private final DriveWithEncoders driveWithEncoders = new DriveWithEncoders(0); //specify value?
+
+  //private final Shooter shooter;
   
   
 
@@ -44,10 +45,11 @@ public class RobotContainer {
   public RobotContainer() {
     //addRequirements
     driveWithJoysticks.addRequirements(driveTrain);
+    driveWithEncoders.addRequirements(driveTrain);
 
 
     //initialize shooter values
-    shooter = new Shooter();
+    //shooter = new Shooter();
 
     //set default commands on subsystems
     driveTrain.setDefaultCommand(new DriveWithJoysticks());

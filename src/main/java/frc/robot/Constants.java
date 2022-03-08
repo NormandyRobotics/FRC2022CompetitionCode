@@ -54,7 +54,12 @@ public final class Constants {
 	public static final int LEFT_DRIVE_ENCODER_SAMPLES = 5;
 	public static final int RIGHT_DRIVE_ENCODER_SAMPLES = 5;
 	public static final int H_DRIVE_ENCODER_SAMPLES = 5;
+	public static final double ENCODER_MIN_RATE = 10; //tweek this value
     public static double ENCODER_DRIVE_SPEED = 0.5; //set auto drive speed by encoders to 50%
+	public static int ENCODER_PULSE_COUNT = 2048;
+	
+	//robot specs
+	public static int WHEEL_RADIUS = 4;
 
 
 
