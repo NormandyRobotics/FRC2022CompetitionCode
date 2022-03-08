@@ -9,7 +9,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.XboxController;
+//import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -54,26 +54,12 @@ public class Drivetrain extends SubsystemBase {
 
   }
 
-  public void driveWithJoysticks(XboxController controller)
+  public void driveWithJoysticks(double leftSpeed, double rightSpeed, double hSpeed)
   {
-    leftDriveMotor.set(controller.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS)*Constants.DRIVETRAINSPEED);
-    rightDriveMotor.set(controller.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_Y_AXIS)*Constants.DRIVETRAINSPEED);
-
-    //activate H Drive strafe using top shoulder buttons. Off if no button pressed
-    if (controller.getRawButton(Constants.DRIVER_SHOULDER_TOP_LEFT))
-    {
-      hDriveMotor.set(-1*Constants.H_DRIVE_SPEED);
-    }
-    else if (controller.getRawButton(Constants.DRIVER_SHOULDER_TOP_RIGHT))
-    {
-      hDriveMotor.set(Constants.H_DRIVE_SPEED);
-    }
-    else
-    {
-      hDriveMotor.set(0);
-    }
-
+    drive.tankDrive(leftSpeed, rightSpeed);
+    hDriveMotor.set(hSpeed);
   }
+
 
   public void driveWithEncoders(int distance)
   {
