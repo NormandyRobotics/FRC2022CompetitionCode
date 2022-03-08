@@ -7,13 +7,14 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
+import frc.robot.subsystems.Drivetrain;
 
 public class DriveWithEncoders extends CommandBase {
 
   private boolean finished = false;
   int distance;
 
-  public DriveWithEncoders(int d) //distance in inches
+  public DriveWithEncoders(int d, Drivetrain driveTrain) //distance in inches
   {   
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(RobotContainer.driveTrain);
