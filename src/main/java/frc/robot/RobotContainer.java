@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 //import frc.robot.commands.DriveWithEncoders;
 import frc.robot.commands.DriveWithJoysticks;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -24,14 +25,16 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   //Drivetrain declare
-  private final Drivetrain driveTrain;
-  private final DriveWithJoysticks driveWithJoysticks;
+  public final static Drivetrain driveTrain = new Drivetrain();
+  private final DriveWithJoysticks driveWithJoysticks = new DriveWithJoysticks();
   //private final DriveWithEncoders driveWithEncoders;
+  private final Shooter shooter;
+  
   
 
-
-  public static XboxController driverJoystick;
-  public static XboxController operatorJoystick;
+  //Joystick declare
+  public static XboxController  driverJoystick = new XboxController(Constants.DRIVER_JOYSTICK);
+  public static XboxController operatorJoystick = new XboxController(Constants.OPERATOR_JOYSTICK);
 
   //Sendable chooser declare
   SendableChooser<Command> chooser = new SendableChooser<>();
@@ -39,15 +42,16 @@ public class RobotContainer {
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    // initialize drive values
-    driveTrain = new Drivetrain();
-    driveWithJoysticks = new DriveWithJoysticks(driveTrain);
+    //addRequirements
     driveWithJoysticks.addRequirements(driveTrain);
-    driveTrain.setDefaultCommand(driveWithJoysticks);
 
-    // initialize joystick values
-    driverJoystick = new XboxController(Constants.DRIVER_JOYSTICK);
-    operatorJoystick = new XboxController(Constants.OPERATOR_JOYSTICK);
+
+    //initialize shooter values
+    shooter = new Shooter();
+
+    //set default commands on subsystems
+    driveTrain.setDefaultCommand(new DriveWithJoysticks());
+
 
 
     //initalize camera (move to its own subsystem later)
