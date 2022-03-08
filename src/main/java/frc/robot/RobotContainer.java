@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.commands.DriveWithEncoders;
 import frc.robot.commands.DriveWithJoysticks;
+import frc.robot.commands.RotateToDegrees;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -27,8 +28,8 @@ public class RobotContainer {
   //Drivetrain declare
   public final static Drivetrain driveTrain = new Drivetrain();
   private final DriveWithJoysticks driveWithJoysticks = new DriveWithJoysticks();
-  private final DriveWithEncoders driveWithEncoders = new DriveWithEncoders(0); //specify value?
-
+  private final DriveWithEncoders driveWithEncoders = new DriveWithEncoders(0, driveTrain); //specify value?
+  private final RotateToDegrees rotateToDegrees = new RotateToDegrees(0, driveTrain); //specify value?
   //private final Shooter shooter;
   
   
@@ -46,7 +47,7 @@ public class RobotContainer {
     //addRequirements
     driveWithJoysticks.addRequirements(driveTrain);
     driveWithEncoders.addRequirements(driveTrain);
-
+    rotateToDegrees.addRequirements(driveTrain);
 
     //initialize shooter values
     //shooter = new Shooter();

@@ -60,6 +60,10 @@ public final class Constants {
 	
 	//robot specs
 	public static int WHEEL_RADIUS = 4;
+	public static double WHEEL_ROTATIONS_PER_TURN = 1.4375; //based on 23" robot turn diameter, 8" wheel diameter
+	public static double INCHES_PER_TURN = 36.11; //wheel rotations * 25.12 in wheel circumference
+	public static double INCHES_PER_DEGREE = 0.1; //approx 36.11/360
+	
 
 
 

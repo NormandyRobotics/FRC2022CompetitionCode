@@ -25,6 +25,7 @@ public class Drivetrain extends SubsystemBase {
   public Encoder leftDriveEncoder;
   public Encoder rightDriveEncoder;
   Encoder hDriveEncoder;
+  
 
 
    DifferentialDrive drive;
@@ -44,13 +45,7 @@ public class Drivetrain extends SubsystemBase {
     hDriveMotor.setInverted(false);
     hDriveEncoder = new Encoder(Constants.H_ENCODER_A, Constants.H_ENCODER_B);
 
-
-
-
     drive = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-    
-
-
 
   }
 
@@ -64,53 +59,12 @@ public class Drivetrain extends SubsystemBase {
   public void driveWithEncoders(double leftSpeed, double rightSpeed)
   {
     drive.tankDrive(leftSpeed, rightSpeed);
-    /*
-    double error;
-    // where do we initialize the encoders? 
-    leftDriveEncoder.reset();
-    rightDriveEncoder.reset();
-
-    //leftDriveEncoder.setSamplesToAverage(Constants.LEFT_DRIVE_ENCODER_SAMPLES);
-    //rightDriveEncoder.setSamplesToAverage(Constants.RIGHT_DRIVE_ENCODER_SAMPLES);
     
-    //read current left and right encoder values
-    //set left and right motors to constant drive speed
-    //drive until distance is met
-
-
-    while(((leftDriveEncoder.getDistance() + rightDriveEncoder.getDistance())/2) < distance)
-    {
-      error = leftDriveEncoder.getDistance() - rightDriveEncoder.getDistance();
-      double kP = 1; //proportionality constant for PD control
-
-      //may need to change both values to + kP*error based on motor inversion
-      drive.tankDrive(Constants.ENCODER_DRIVE_SPEED+kP*error, Constants.ENCODER_DRIVE_SPEED - kP*error);
-
-    }
-
-    leftDriveMotor.set(0);
-    rightDriveMotor.set(0);
-    
-*/
- 
-
   }
 
-  public void driveWithGyros(int degrees)
+  public void rotateToDegrees(double leftSpeed, double rightSpeed)
   {
-    
-    //reset gyro
-    //read current gyro position
-    //tank drive wheels opposite directions until desired direction acquired
-
-      
-     // drive.tankDrive(Constants.ENCODER_DRIVE_SPEED+kP*error, Constants.ENCODER_DRIVE_SPEED - kP*error);
-
-    
-
-    leftDriveMotor.set(0);
-    rightDriveMotor.set(0);
-    
+    drive.tankDrive(leftSpeed, rightSpeed);
 
   }
 
