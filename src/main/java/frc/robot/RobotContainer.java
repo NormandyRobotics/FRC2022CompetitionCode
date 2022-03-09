@@ -16,7 +16,9 @@ import frc.robot.commands.RotateToDegrees;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.ShootHigh;
 import frc.robot.commands.ShootLow;
+import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -38,6 +40,10 @@ public class RobotContainer {
   private final ShootHigh shootHigh = new ShootHigh(shooter);
   private final ShootLow shootLow = new ShootLow(shooter);
   private final Shoot shoot = new Shoot(shooter);
+
+  public final static Climber climber = new Climber();
+
+  public final static Intake intake = new Intake();
   
   
 

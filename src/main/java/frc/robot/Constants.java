@@ -22,6 +22,7 @@ public final class Constants {
     public static final int H_MOTOR = 4;
 	public static final int SHOOTER_MOTOR = 5;
 	public static final int FEED_MOTOR = 6;
+	public static final int PCM = 10;
 
 
 	//DIO
@@ -73,6 +74,16 @@ public final class Constants {
 	public static final double SHOUTER_LOW_SETPOINT = 0;
 	public static final double HIGH_SHOT_PERCENT = 1.0;
 	public static final double LOW_SHOT_PERCENT = 0.5;
+
+	//Climber Constants
+	public static final int CLIMBER_UP_PORT = 2;
+	public static final int CLIMBER_DOWN_PORT = 3;
+
+	//Intake Constants
+	public static final int INTAKE_UP_PORT = 0;
+	public static final int INTAKE_DOWN_PORT = 1;
+
+
 
 	//robot specs
 	public static int WHEEL_RADIUS = 4;
