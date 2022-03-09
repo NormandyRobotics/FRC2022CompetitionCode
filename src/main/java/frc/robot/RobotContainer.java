@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.commands.DriveWithEncoders;
 import frc.robot.commands.DriveWithJoysticks;
 import frc.robot.commands.RotateToDegrees;
+import frc.robot.commands.Shoot;
 import frc.robot.commands.ShootHigh;
 import frc.robot.commands.ShootLow;
 import frc.robot.subsystems.Drivetrain;
@@ -32,9 +33,11 @@ public class RobotContainer {
   private final DriveWithJoysticks driveWithJoysticks = new DriveWithJoysticks();
   private final DriveWithEncoders driveWithEncoders = new DriveWithEncoders(0, driveTrain); //specify value?
   private final RotateToDegrees rotateToDegrees = new RotateToDegrees(0, driveTrain); //specify value?
+  
   public final static Shooter shooter = new Shooter();
   private final ShootHigh shootHigh = new ShootHigh(shooter);
   private final ShootLow shootLow = new ShootLow(shooter);
+  private final Shoot shoot = new Shoot(shooter);
   
   
 
@@ -53,8 +56,11 @@ public class RobotContainer {
     driveWithEncoders.addRequirements(driveTrain);
     rotateToDegrees.addRequirements(driveTrain);
 
-    //initialize shooter values
-    //shooter = new Shooter();
+    shootHigh.addRequirements(shooter);
+    shootLow.addRequirements(shooter);
+    shoot.addRequirements(shooter);
+
+
 
     //set default commands on subsystems
     driveTrain.setDefaultCommand(new DriveWithJoysticks());

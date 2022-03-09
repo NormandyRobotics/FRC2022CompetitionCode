@@ -44,7 +44,7 @@ public class Shooter extends SubsystemBase {
 
   }
 
-  public void shoot(double shootSpeed)
+  public void shoot()
   {
 
     feedMotor.set(ControlMode.PercentOutput, 1.0);
