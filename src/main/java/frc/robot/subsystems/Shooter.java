@@ -4,11 +4,40 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class Shooter extends SubsystemBase {
   /** Creates a new Shooter. */
-  public Shooter() {}
+  public CANSparkMax shooterMotor;
+  public Encoder shooterEncoder;
+  VictorSPX feedMotor;
+  
+
+  
+
+  public Shooter() 
+  {
+    shooterMotor = new CANSparkMax(Constants.SHOOTER_MOTOR, MotorType.kBrushed);
+    shooterMotor.setInverted(false);
+    shooterEncoder = new Encoder(Constants.SHOOTER_ENCODER_A, Constants.SHOOTER_ENCODER_B);
+
+    feedMotor = new VictorSPX(Constants.FEED_MOTOR);
+
+
+  }
+
+  public void shoot(double shootSpeed)
+  {
+    feedMotor.set(ControlMode.PercentOutput, shootSpeed);
+
+  }
 
   @Override
   public void periodic() {

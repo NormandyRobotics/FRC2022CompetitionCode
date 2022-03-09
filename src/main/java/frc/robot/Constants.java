@@ -20,6 +20,8 @@ public final class Constants {
     public static final int LEFT_MOTOR = 2;
     public static final int RIGHT_MOTOR = 3;
     public static final int H_MOTOR = 4;
+	public static final int SHOOTER_MOTOR = 5;
+	public static final int FEED_MOTOR = 6;
 
 
 	//DIO
@@ -29,6 +31,8 @@ public final class Constants {
     public static final int RIGHT_ENCODER_B = 3;
 	public static final int H_ENCODER_A = 4;
     public static final int H_ENCODER_B = 5;
+	public static final int SHOOTER_ENCODER_A = 6;
+	public static final int SHOOTER_ENCODER_B = 7;
 
 	//Joystick button/axis maps
 	public static final int DRIVER_JOYSTICK = 0;
@@ -54,16 +58,25 @@ public final class Constants {
 	public static final int LEFT_DRIVE_ENCODER_SAMPLES = 5;
 	public static final int RIGHT_DRIVE_ENCODER_SAMPLES = 5;
 	public static final int H_DRIVE_ENCODER_SAMPLES = 5;
+	public static final int SHOOTER_ENCODER_SAMPLES = 5;
 	public static final double ENCODER_MIN_RATE = 10; //tweek this value
+	public static final double SHOOTER_ENCODER_MIN_RATE = 10;
     public static double ENCODER_DRIVE_SPEED = 0.5; //set auto drive speed by encoders to 50%
 	public static int ENCODER_PULSE_COUNT = 2048;
+	public static int SHOOTER_ENCODER_PULSE_COUNT = 256;
+
 	
+	//Shooter Constants
+	public static final int SHOOT_HIGH_RPM = 5500;
+	public static final int SHOOT_LOW_RPM = 3000;
+
 	//robot specs
 	public static int WHEEL_RADIUS = 4;
+	public static int SHOOTER_WHEEL_RADIUS = 2;
 	public static double WHEEL_ROTATIONS_PER_TURN = 1.4375; //based on 23" robot turn diameter, 8" wheel diameter
 	public static double INCHES_PER_TURN = 36.11; //wheel rotations * 25.12 in wheel circumference
 	public static double INCHES_PER_DEGREE = 0.1; //approx 36.11/360
-	
+
 
 
 
