@@ -69,6 +69,10 @@ public final class Constants {
 	//Shooter Constants
 	public static final int SHOOT_HIGH_RPM = 5500;
 	public static final int SHOOT_LOW_RPM = 3000;
+    public static final double SHOOTER_HIGH_SETPOINT = 0;
+	public static final double SHOUTER_LOW_SETPOINT = 0;
+	public static final double HIGH_SHOT_PERCENT = 1.0;
+	public static final double LOW_SHOT_PERCENT = 0.5;
 
 	//robot specs
 	public static int WHEEL_RADIUS = 4;
@@ -76,6 +80,8 @@ public final class Constants {
 	public static double WHEEL_ROTATIONS_PER_TURN = 1.4375; //based on 23" robot turn diameter, 8" wheel diameter
 	public static double INCHES_PER_TURN = 36.11; //wheel rotations * 25.12 in wheel circumference
 	public static double INCHES_PER_DEGREE = 0.1; //approx 36.11/360
+
+	//
 
 
 
