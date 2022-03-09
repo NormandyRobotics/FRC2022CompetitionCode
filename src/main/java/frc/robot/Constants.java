@@ -22,6 +22,7 @@ public final class Constants {
     public static final int H_MOTOR = 4;
 	public static final int SHOOTER_MOTOR = 5;
 	public static final int FEED_MOTOR = 6;
+	public static final int INTAKE_MOTOR = 7;
 	public static final int PCM = 10;
 
 
@@ -92,7 +93,7 @@ public final class Constants {
 	public static double INCHES_PER_TURN = 36.11; //wheel rotations * 25.12 in wheel circumference
 	public static double INCHES_PER_DEGREE = 0.1; //approx 36.11/360
 
-	//
+
 
 
 
