@@ -41,12 +41,34 @@ public final class Constants {
 	public static final int DRIVER_JOYSTICK_LEFT_Y_AXIS = 1;
 	public static final int DRIVER_JOYSTICK_RIGHT_Y_AXIS = 3;
 
-	public static final int DRIVER_SHOULDER_TOP_LEFT = 0;
-	public static final int DRIVER_SHOULDER_TOP_RIGHT = 0;
-
+	public static final int DRIVER_SHOULDER_TOP_LEFT = 5;
+	public static final int DRIVER_SHOULDER_TOP_RIGHT = 6;
+	public static final int DRIVER_LEFT = 1;
+	public static final int DRIVER_RIGHT = 3;
+	public static final int DRIVER_UP = 4;
+	public static final int DRIVER_DOWN = 2;
+	public static final int DRIVER_SHOULDER_BOTTOM_LEFT = 7;
+	public static final int DRIVER_SHOULDER_BOTTOM_RIGHT = 8;
+	public static final int DRIVER_LEFT_JOYSTICK = 9;
+	public static final int DRIVER_RIGHT_JOYSTICK = 10;
 
 
 	public static final int OPERATOR_JOYSTICK = 1;
+	public static final int OPERATOR_JOYSTICK_LEFT_Y_AXIS = 1;
+	public static final int OPERATOR_JOYSTICK_RIGHT_Y_AXIS = 3;
+
+	public static final int OPERATOR_SHOULDER_TOP_LEFT = 5;
+	public static final int OPERATOR_SHOULDER_TOP_RIGHT = 6;
+	public static final int OPERATOR_LEFT = 1;
+	public static final int OPERATOR_RIGHT = 3;
+	public static final int OPERATOR_UP = 4;
+	public static final int OPERATOR_DOWN = 2;
+	public static final int OPERATOR_SHOULDER_BOTTOM_LEFT = 7;
+	public static final int OPERATOR_SHOULDER_BOTTOM_RIGHT = 8;
+	public static final int OPERATOR_LEFT_JOYSTICK = 9;
+	public static final int OPERATOR_RIGHT_JOYSTICK = 10;
+
+
 
 	//Drivetrain constants
 	public static final double DRIVETRAINSPEED = 0.75;  //max speed at 75%
@@ -92,6 +114,8 @@ public final class Constants {
 	public static double WHEEL_ROTATIONS_PER_TURN = 1.4375; //based on 23" robot turn diameter, 8" wheel diameter
 	public static double INCHES_PER_TURN = 36.11; //wheel rotations * 25.12 in wheel circumference
 	public static double INCHES_PER_DEGREE = 0.1; //approx 36.11/360
+
+
 
 
 
