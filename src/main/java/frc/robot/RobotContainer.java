@@ -10,8 +10,12 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import frc.robot.commands.ClimberExtend;
 import frc.robot.commands.DriveWithEncoders;
 import frc.robot.commands.DriveWithJoysticks;
+import frc.robot.commands.IntakeExtend;
+import frc.robot.commands.IntakeOff;
+import frc.robot.commands.IntakeOn;
 import frc.robot.commands.RotateToDegrees;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.ShootHigh;
@@ -94,16 +98,16 @@ public class RobotContainer {
   private void configureButtonBindings() 
   {
     
-    JoystickButton driverLeft = new JoystickButton(driverJoystick, Constants.DRIVER_LEFT);
-    JoystickButton driverRight = new JoystickButton(driverJoystick, Constants.DRIVER_RIGHT);
-    JoystickButton driverUp = new JoystickButton(driverJoystick, Constants.DRIVER_UP);
-    JoystickButton driverDown = new JoystickButton(driverJoystick, Constants.DRIVER_DOWN);
-    JoystickButton driverShoulderTopLeft = new JoystickButton(driverJoystick, Constants.DRIVER_SHOULDER_TOP_LEFT);
-    JoystickButton driverShoulderTopRight = new JoystickButton(driverJoystick, Constants.DRIVER_SHOULDER_TOP_RIGHT);
-    JoystickButton driverShoulderBottomLeft = new JoystickButton(driverJoystick, Constants.DRIVER_SHOULDER_BOTTOM_LEFT);
-    JoystickButton driverShoulderBottomRight = new JoystickButton(driverJoystick, Constants.DRIVER_SHOULDER_BOTTOM_RIGHT);
-    JoystickButton driverLeftJoystick = new JoystickButton(driverJoystick, Constants.DRIVER_LEFT_JOYSTICK);
-    JoystickButton driverRightJoystick = new JoystickButton(driverJoystick, Constants.DRIVER_RIGHT_JOYSTICK);
+    //JoystickButton driverLeft = new JoystickButton(driverJoystick, Constants.DRIVER_LEFT);
+    //JoystickButton driverRight = new JoystickButton(driverJoystick, Constants.DRIVER_RIGHT);
+    //JoystickButton driverUp = new JoystickButton(driverJoystick, Constants.DRIVER_UP);
+    //JoystickButton driverDown = new JoystickButton(driverJoystick, Constants.DRIVER_DOWN);
+    //JoystickButton driverShoulderTopLeft = new JoystickButton(driverJoystick, Constants.DRIVER_SHOULDER_TOP_LEFT);
+    //JoystickButton driverShoulderTopRight = new JoystickButton(driverJoystick, Constants.DRIVER_SHOULDER_TOP_RIGHT);
+    //JoystickButton driverShoulderBottomLeft = new JoystickButton(driverJoystick, Constants.DRIVER_SHOULDER_BOTTOM_LEFT);
+    //JoystickButton driverShoulderBottomRight = new JoystickButton(driverJoystick, Constants.DRIVER_SHOULDER_BOTTOM_RIGHT);
+    //JoystickButton driverLeftJoystick = new JoystickButton(driverJoystick, Constants.DRIVER_LEFT_JOYSTICK);
+    //JoystickButton driverRightJoystick = new JoystickButton(driverJoystick, Constants.DRIVER_RIGHT_JOYSTICK);
 
     JoystickButton operatorLeft = new JoystickButton(operatorJoystick, Constants.OPERATOR_LEFT);
     JoystickButton operatorRight = new JoystickButton(operatorJoystick, Constants.OPERATOR_RIGHT);
@@ -113,10 +117,24 @@ public class RobotContainer {
     JoystickButton operatorShoulderTopRight = new JoystickButton(operatorJoystick, Constants.OPERATOR_SHOULDER_TOP_RIGHT);
     JoystickButton operatorShoulderBottomLeft = new JoystickButton(operatorJoystick, Constants.OPERATOR_SHOULDER_BOTTOM_LEFT);
     JoystickButton operatorShoulderBottomRight = new JoystickButton(operatorJoystick, Constants.OPERATOR_SHOULDER_BOTTOM_RIGHT);
-    JoystickButton operatorLeftJoystick = new JoystickButton(operatorJoystick, Constants.OPERATOR_LEFT_JOYSTICK);
-    JoystickButton operatorRightJoystick = new JoystickButton(operatorJoystick, Constants.OPERATOR_RIGHT_JOYSTICK);
+    //JoystickButton operatorLeftJoystick = new JoystickButton(operatorJoystick, Constants.OPERATOR_LEFT_JOYSTICK);
+    //JoystickButton operatorRightJoystick = new JoystickButton(operatorJoystick, Constants.OPERATOR_RIGHT_JOYSTICK);
 
+    //button command links
+    operatorUp.whenPressed(new ShootHigh(shooter)); //set shooter motor to shoot to high goal
+    operatorDown.whenPressed(new ShootLow(shooter)); //set shooter motor to shoot to low goal
+    operatorShoulderTopLeft.whileHeld(new Shoot(shooter)); //feed balls into shooter while button is held
+    operatorShoulderTopRight.whileHeld(new Shoot(shooter)); //feed balls into shooter while button is held
+    operatorLeft.whenPressed(new IntakeOff()); //turn off intake
+    operatorRight.whenPressed(new IntakeOn()); //turn on intake
+    operatorShoulderBottomLeft.whenPressed(new IntakeExtend()); //toggle intake position
+    operatorShoulderBottomRight.whenPressed(new ClimberExtend()); //toggle climber position
+
+    //driverShoulderTopLeft.whenHeld(new StrafeLeft()); //add strafe left command
+    //driverShouldTopRight.whenHeld(new StrafeRight()); //add strafe right command
     
+    
+
 
 
 
