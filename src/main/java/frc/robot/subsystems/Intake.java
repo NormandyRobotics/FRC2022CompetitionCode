@@ -22,6 +22,7 @@ public class Intake extends SubsystemBase {
   {
       intakeExtend = new DoubleSolenoid(Constants.PCM, PneumaticsModuleType.CTREPCM, Constants.INTAKE_UP_PORT, Constants.INTAKE_DOWN_PORT);
       intakeMotor = new VictorSPX(Constants.INTAKE_MOTOR);
+      intakeMotor.setInverted(true);
     }
 
   public void intakeOn()

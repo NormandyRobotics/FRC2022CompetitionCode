@@ -5,35 +5,29 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Shooter;
 
-public class ShootLow extends CommandBase {
-  /** Creates a new ShootLow. */
-  public ShootLow(Shooter shooter) {
-    // Use addRequirements() here to declare subsystem dependencies.
+public class ShootOff extends CommandBase {
+  /** Creates a new ShootOff. */
+  public ShootOff(Shooter shooter) {
     addRequirements(RobotContainer.shooter);
+    // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    RobotContainer.shooter.setSpeed(Constants.LOW_SHOT_PERCENT);
+    RobotContainer.shooter.setSpeed(0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() 
-  {
-
-  }
+  public void execute() {}
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-    RobotContainer.shooter.setSpeed(0);
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override

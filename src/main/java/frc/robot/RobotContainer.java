@@ -20,6 +20,7 @@ import frc.robot.commands.RotateToDegrees;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.ShootHigh;
 import frc.robot.commands.ShootLow;
+import frc.robot.commands.ShootOff;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
@@ -44,6 +45,7 @@ public class RobotContainer {
   public final static Shooter shooter = new Shooter();
   private final ShootHigh shootHigh = new ShootHigh(shooter);
   private final ShootLow shootLow = new ShootLow(shooter);
+  private final ShootOff shootOff = new ShootOff(shooter);
   private final Shoot shoot = new Shoot(shooter);
 
   public final static Climber climber = new Climber();
@@ -69,6 +71,7 @@ public class RobotContainer {
 
     shootHigh.addRequirements(shooter);
     shootLow.addRequirements(shooter);
+    shootOff.addRequirements(shooter);
     shoot.addRequirements(shooter);
 
 
@@ -122,7 +125,9 @@ public class RobotContainer {
 
     //button command links
     operatorUp.whenPressed(new ShootHigh(shooter)); //set shooter motor to shoot to high goal
+    operatorUp.whenReleased(new ShootOff(shooter)); //turn off shooter motor
     operatorDown.whenPressed(new ShootLow(shooter)); //set shooter motor to shoot to low goal
+    operatorDown.whenReleased(new ShootOff(shooter)); // tuirn off shooter motor
     operatorShoulderTopLeft.whileHeld(new Shoot(shooter)); //feed balls into shooter while button is held
     operatorShoulderTopRight.whileHeld(new Shoot(shooter)); //feed balls into shooter while button is held
     operatorLeft.whenPressed(new IntakeOff()); //turn off intake

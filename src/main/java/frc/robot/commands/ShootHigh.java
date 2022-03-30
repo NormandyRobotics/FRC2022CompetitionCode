@@ -20,6 +20,7 @@ public class ShootHigh extends CommandBase {
   @Override
   public void initialize() 
   {
+    RobotContainer.shooter.setSpeed(Constants.HIGH_SHOT_PERCENT);
     /*
     RobotContainer.shooter.shooterEncoder.setSamplesToAverage(Constants.SHOOTER_ENCODER_SAMPLES);
     RobotContainer.shooter.shooterEncoder.setDistancePerPulse(1.0/Constants.SHOOTER_ENCODER_PULSE_COUNT*2.0*Math.PI*Constants.SHOOTER_WHEEL_RADIUS);
@@ -32,7 +33,7 @@ public class ShootHigh extends CommandBase {
   @Override
   public void execute() 
   {
-    RobotContainer.shooter.setSpeed(Constants.HIGH_SHOT_PERCENT);
+
     /*
     double setpoint = (Constants.SHOOTER_HIGH_SETPOINT*(2*Math.PI*Constants.SHOOTER_WHEEL_RADIUS))/60;
     RobotContainer.shooter.shooterMotor.set(RobotContainer.shooter.shooterController.calculate(RobotContainer.shooter.shooterEncoder.getRate(), setpoint));
