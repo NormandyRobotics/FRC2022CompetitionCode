@@ -23,7 +23,8 @@ public final class Constants {
 	public static final int SHOOTER_MOTOR = 5;
 	public static final int FEED_MOTOR = 6;
 	public static final int INTAKE_MOTOR = 7;
-	public static final int PCM = 10;
+	public static final int PCM = 1;
+	public static final int PDP = 9;
 
 
 	//DIO
