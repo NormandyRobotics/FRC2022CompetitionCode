@@ -72,8 +72,8 @@ public final class Constants {
 
 
 	//Drivetrain constants
-	public static final double DRIVETRAINSPEED = 0.75;  //max speed at 75%
-	public static final double H_DRIVE_SPEED = 0.50; //h drive speed at 50%
+	public static final double DRIVETRAINSPEED = 1;  //max speed at 100%
+	public static final double H_DRIVE_SPEED = 0.75; //h drive speed at 75%
 
 	//Camera constants
 	public static final int CAMERA_RES_X = 320;

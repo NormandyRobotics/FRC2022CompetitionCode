@@ -17,9 +17,9 @@ import frc.robot.Constants;
 public class Drivetrain extends SubsystemBase {
 
   //change speed controller types as necessary
-  CANSparkMax leftDriveMotor;
-  CANSparkMax rightDriveMotor;
-  CANSparkMax hDriveMotor;
+  private final CANSparkMax leftDriveMotor;
+  private final CANSparkMax rightDriveMotor;
+  private final CANSparkMax hDriveMotor;
 
   
   public Encoder leftDriveEncoder;
@@ -28,7 +28,7 @@ public class Drivetrain extends SubsystemBase {
   
 
 
-   DifferentialDrive drive;
+  private final DifferentialDrive drive;
   
 
   /** Creates a new Drivetrain. */
@@ -38,7 +38,7 @@ public class Drivetrain extends SubsystemBase {
     leftDriveEncoder = new Encoder(Constants.LEFT_ENCODER_A, Constants.LEFT_ENCODER_B);
 
     rightDriveMotor = new CANSparkMax(Constants.RIGHT_MOTOR, MotorType.kBrushed);
-    rightDriveMotor.setInverted(false);
+    rightDriveMotor.setInverted(true);
     rightDriveEncoder = new Encoder(Constants.RIGHT_ENCODER_A, Constants.RIGHT_ENCODER_B);
 
     hDriveMotor = new CANSparkMax(Constants.H_MOTOR, MotorType.kBrushed);

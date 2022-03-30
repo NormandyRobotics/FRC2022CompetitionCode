@@ -4,12 +4,11 @@
 
 package frc.robot;
 
-//import edu.wpi.first.wpilibj.Encoder;
-//import edu.wpi.first.cscore.UsbCamera;
-//import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ClimberExtend;
 import frc.robot.commands.DriveWithEncoders;
 import frc.robot.commands.DriveWithJoysticks;
@@ -25,8 +24,6 @@ import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -37,8 +34,13 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   //Drivetrain declare
+
+  //Joystick declare
+  private final XboxController  driverJoystick = new XboxController(Constants.DRIVER_JOYSTICK);
+  private final  XboxController operatorJoystick = new XboxController(Constants.OPERATOR_JOYSTICK);
+
   public final static Drivetrain driveTrain = new Drivetrain();
-  private final DriveWithJoysticks driveWithJoysticks = new DriveWithJoysticks();
+  private final DriveWithJoysticks driveWithJoysticks = new DriveWithJoysticks(driveTrain, driverJoystick);
   private final DriveWithEncoders driveWithEncoders = new DriveWithEncoders(0, driveTrain); //specify value?
   private final RotateToDegrees rotateToDegrees = new RotateToDegrees(0, driveTrain); //specify value?
   
@@ -54,9 +56,6 @@ public class RobotContainer {
   
   
 
-  //Joystick declare
-  public static XboxController  driverJoystick = new XboxController(Constants.DRIVER_JOYSTICK);
-  public static XboxController operatorJoystick = new XboxController(Constants.OPERATOR_JOYSTICK);
 
   //Sendable chooser declare
   SendableChooser<Command> chooser = new SendableChooser<>();
@@ -77,7 +76,7 @@ public class RobotContainer {
 
 
     //set default commands on subsystems
-    driveTrain.setDefaultCommand(new DriveWithJoysticks());
+    driveTrain.setDefaultCommand(new DriveWithJoysticks(driveTrain, driverJoystick));
 
 
 
@@ -90,6 +89,8 @@ public class RobotContainer {
 
     // Configure the button bindings
     configureButtonBindings();
+
+
   }
 
   /**
