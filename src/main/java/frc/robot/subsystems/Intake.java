@@ -9,6 +9,7 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -21,6 +22,7 @@ public class Intake extends SubsystemBase {
   public Intake() 
   {
       intakeExtend = new DoubleSolenoid(Constants.PCM, PneumaticsModuleType.CTREPCM, Constants.INTAKE_UP_PORT, Constants.INTAKE_DOWN_PORT);
+      intakeExtend.set(Value.kForward);
       intakeMotor = new VictorSPX(Constants.INTAKE_MOTOR);
       intakeMotor.setInverted(true);
     }

@@ -41,9 +41,9 @@ public class DriveWithJoysticks extends CommandBase {
     // (RobotContainer.driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_Y_AXIS)*Constants.DRIVETRAINSPEED);
     double hSpeed;
 
-    if (m_driverJoystick.getRawButton(Constants.DRIVER_SHOULDER_TOP_LEFT)) {
+    if (m_driverJoystick.getRawButton(Constants.DRIVER_SHOULDER_TOP_RIGHT)) {
       hSpeed = -1 * Constants.H_DRIVE_SPEED;
-    } else if (m_driverJoystick.getRawButton(Constants.DRIVER_SHOULDER_TOP_RIGHT)) {
+    } else if (m_driverJoystick.getRawButton(Constants.DRIVER_SHOULDER_TOP_LEFT)) {
       hSpeed = Constants.H_DRIVE_SPEED;
     } else {
       hSpeed = 0;

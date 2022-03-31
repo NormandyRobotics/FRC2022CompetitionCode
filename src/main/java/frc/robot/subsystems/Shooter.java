@@ -42,10 +42,16 @@ public class Shooter extends SubsystemBase {
   public void shoot()
   {
 
-    feedMotor.set(ControlMode.PercentOutput, 1.0);
+    feedMotor.set(ControlMode.PercentOutput, -1.0);
 
   }
 
+  public void shootOff()
+  {
+
+    feedMotor.set(ControlMode.PercentOutput, 0.0);
+
+  }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

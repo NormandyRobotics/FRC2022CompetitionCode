@@ -4,35 +4,26 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
-import frc.robot.subsystems.Climber;
+import frc.robot.subsystems.Shooter;
 
-public class ClimberExtend extends CommandBase {
-
-  public Climber climber;
-  /** Creates a new ClimberExtend. */
-  public ClimberExtend(Climber climber) {
-    this.climber = climber;
+public class TriggerOff extends CommandBase {
+  /** Creates a new TriggerOff. */
+  public TriggerOff(Shooter shooter) {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(climber);
+    addRequirements(shooter);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() 
-  {
-    //RobotContainer.climber.climberArm.set(Value.kForward);
-    climber.climberArm.set(Value.kReverse);
+  public void initialize() {
+    RobotContainer.shooter.shootOff();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() 
-  {
-    //RobotContainer.climber.climberArm.toggle();
-  }
+  public void execute() {}
 
   // Called once the command ends or is interrupted.
   @Override

@@ -10,16 +10,19 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ClimberExtend;
+import frc.robot.commands.ClimberRetract;
 import frc.robot.commands.DriveWithEncoders;
 import frc.robot.commands.DriveWithJoysticks;
 import frc.robot.commands.IntakeExtend;
 import frc.robot.commands.IntakeOff;
 import frc.robot.commands.IntakeOn;
+import frc.robot.commands.IntakeRetract;
 import frc.robot.commands.RotateToDegrees;
 import frc.robot.commands.Shoot;
 import frc.robot.commands.ShootHigh;
 import frc.robot.commands.ShootLow;
 import frc.robot.commands.ShootOff;
+import frc.robot.commands.TriggerOff;
 import frc.robot.subsystems.Climber;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
@@ -43,6 +46,8 @@ public class RobotContainer {
   private final DriveWithJoysticks driveWithJoysticks = new DriveWithJoysticks(driveTrain, driverJoystick);
   private final DriveWithEncoders driveWithEncoders = new DriveWithEncoders(0, driveTrain); //specify value?
   private final RotateToDegrees rotateToDegrees = new RotateToDegrees(0, driveTrain); //specify value?
+
+  private final TriggerOff triggerOff = new TriggerOff(shooter);
   
   public final static Shooter shooter = new Shooter();
   private final ShootHigh shootHigh = new ShootHigh(shooter);
@@ -50,7 +55,7 @@ public class RobotContainer {
   private final ShootOff shootOff = new ShootOff(shooter);
   private final Shoot shoot = new Shoot(shooter);
 
-  public final static Climber climber = new Climber();
+  public final  Climber climber = new Climber();
 
   public final static Intake intake = new Intake();
   
@@ -77,6 +82,8 @@ public class RobotContainer {
 
     //set default commands on subsystems
     driveTrain.setDefaultCommand(new DriveWithJoysticks(driveTrain, driverJoystick));
+    climber.setDefaultCommand(new ClimberRetract(climber));
+   // intake.setDefaultCommand(new IntakeRetract());
 
 
 
@@ -108,8 +115,8 @@ public class RobotContainer {
     //JoystickButton driverDown = new JoystickButton(driverJoystick, Constants.DRIVER_DOWN);
     //JoystickButton driverShoulderTopLeft = new JoystickButton(driverJoystick, Constants.DRIVER_SHOULDER_TOP_LEFT);
     //JoystickButton driverShoulderTopRight = new JoystickButton(driverJoystick, Constants.DRIVER_SHOULDER_TOP_RIGHT);
-    //JoystickButton driverShoulderBottomLeft = new JoystickButton(driverJoystick, Constants.DRIVER_SHOULDER_BOTTOM_LEFT);
-    //JoystickButton driverShoulderBottomRight = new JoystickButton(driverJoystick, Constants.DRIVER_SHOULDER_BOTTOM_RIGHT);
+    JoystickButton driverShoulderBottomLeft = new JoystickButton(driverJoystick, Constants.DRIVER_SHOULDER_BOTTOM_LEFT);
+    JoystickButton driverShoulderBottomRight = new JoystickButton(driverJoystick, Constants.DRIVER_SHOULDER_BOTTOM_RIGHT);
     //JoystickButton driverLeftJoystick = new JoystickButton(driverJoystick, Constants.DRIVER_LEFT_JOYSTICK);
     //JoystickButton driverRightJoystick = new JoystickButton(driverJoystick, Constants.DRIVER_RIGHT_JOYSTICK);
 
@@ -129,16 +136,17 @@ public class RobotContainer {
     operatorUp.whenReleased(new ShootOff(shooter)); //turn off shooter motor
     operatorDown.whenPressed(new ShootLow(shooter)); //set shooter motor to shoot to low goal
     operatorDown.whenReleased(new ShootOff(shooter)); // tuirn off shooter motor
-    operatorShoulderTopLeft.whileHeld(new Shoot(shooter)); //feed balls into shooter while button is held
-    operatorShoulderTopRight.whileHeld(new Shoot(shooter)); //feed balls into shooter while button is held
+    operatorShoulderTopLeft.whenPressed(new Shoot(shooter)); //feed balls into shooter while button is held
+    operatorShoulderTopRight.whenPressed(new TriggerOff(shooter)); //feed balls into shooter while button is held
     operatorLeft.whenPressed(new IntakeOff()); //turn off intake
     operatorRight.whenPressed(new IntakeOn()); //turn on intake
     operatorShoulderBottomLeft.whenPressed(new IntakeExtend()); //toggle intake position
-    operatorShoulderBottomRight.whenPressed(new ClimberExtend()); //toggle climber position
+    operatorShoulderBottomRight.whenPressed(new IntakeRetract()); //toggle climber position
 
     //driverShoulderTopLeft.whenHeld(new StrafeLeft()); //add strafe left command
     //driverShouldTopRight.whenHeld(new StrafeRight()); //add strafe right command
-    
+    driverShoulderBottomLeft.whenPressed(new ClimberExtend(climber));
+    driverShoulderBottomRight.whenPressed(new ClimberRetract(climber));
     
 
 

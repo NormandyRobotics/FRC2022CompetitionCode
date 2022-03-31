@@ -100,12 +100,12 @@ public final class Constants {
 	public static final double LOW_SHOT_PERCENT = 0.5;
 
 	//Climber Constants
-	public static final int CLIMBER_UP_PORT = 2;
-	public static final int CLIMBER_DOWN_PORT = 3;
+	public static final int CLIMBER_UP_PORT = 1;
+	public static final int CLIMBER_DOWN_PORT = 0;
 
 	//Intake Constants
-	public static final int INTAKE_UP_PORT = 0;
-	public static final int INTAKE_DOWN_PORT = 1;
+	public static final int INTAKE_UP_PORT = 2;
+	public static final int INTAKE_DOWN_PORT = 3;
 
 
 

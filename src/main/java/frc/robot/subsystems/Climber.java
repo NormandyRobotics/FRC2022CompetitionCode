@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -17,11 +18,18 @@ public class Climber extends SubsystemBase {
   public Climber() 
   {
     climberArm = new DoubleSolenoid(Constants.PCM, PneumaticsModuleType.CTREPCM, Constants.CLIMBER_UP_PORT, Constants.CLIMBER_DOWN_PORT);
+
+    climberArm.set(Value.kForward);
   }
 
   public void climberExtend()
   {
 
+  }
+
+  public void climberRetract()
+  {
+    
   }
 
 

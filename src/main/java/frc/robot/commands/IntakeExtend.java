@@ -19,14 +19,14 @@ public class IntakeExtend extends CommandBase {
   @Override
   public void initialize() 
   {
-    RobotContainer.intake.intakeExtend.set(Value.kReverse);
+    RobotContainer.intake.intakeExtend.set(Value.kForward);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() 
   {
-    RobotContainer.intake.intakeExtend.toggle();
+    //RobotContainer.intake.intakeExtend.toggle();
   }
 
   // Called once the command ends or is interrupted.
