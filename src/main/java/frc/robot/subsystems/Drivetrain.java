@@ -17,8 +17,8 @@ import frc.robot.Constants;
 public class Drivetrain extends SubsystemBase {
 
   //change speed controller types as necessary
-  private final CANSparkMax leftDriveMotor;
-  private final CANSparkMax rightDriveMotor;
+  public final CANSparkMax leftDriveMotor;
+  public final CANSparkMax rightDriveMotor;
   private final CANSparkMax hDriveMotor;
 
   
@@ -55,6 +55,11 @@ public class Drivetrain extends SubsystemBase {
     hDriveMotor.set(hSpeed);
   }
 
+  public void driveBack(double leftSpeed, double rightSpeed, double hSpeed)
+  {
+    drive.tankDrive(leftSpeed, rightSpeed);
+    hDriveMotor.set(hSpeed);
+  }
 
   public void driveWithEncoders(double leftSpeed, double rightSpeed)
   {

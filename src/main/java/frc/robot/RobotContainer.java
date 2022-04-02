@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ClimberExtend;
 import frc.robot.commands.ClimberRetract;
+import frc.robot.commands.DriveBackTimed;
 import frc.robot.commands.DriveWithEncoders;
 import frc.robot.commands.DriveWithJoysticks;
 import frc.robot.commands.IntakeExtend;
@@ -58,6 +59,10 @@ public class RobotContainer {
   public final  Climber climber = new Climber();
 
   public final static Intake intake = new Intake();
+
+  private final DriveBackTimed driveBackTimed = new DriveBackTimed(driveTrain);
+  //private final DriveBackTimed driveBackTimed;
+
   
   
 
@@ -78,7 +83,8 @@ public class RobotContainer {
     shootOff.addRequirements(shooter);
     shoot.addRequirements(shooter);
 
-
+    //driveBackTimed = new DriveBackTimed(driveTrain);
+    //driveBackTimed.addRequirements(driveTrain);
 
     //set default commands on subsystems
     driveTrain.setDefaultCommand(new DriveWithJoysticks(driveTrain, driverJoystick));
@@ -128,14 +134,16 @@ public class RobotContainer {
     JoystickButton operatorShoulderTopRight = new JoystickButton(operatorJoystick, Constants.OPERATOR_SHOULDER_TOP_RIGHT);
     JoystickButton operatorShoulderBottomLeft = new JoystickButton(operatorJoystick, Constants.OPERATOR_SHOULDER_BOTTOM_LEFT);
     JoystickButton operatorShoulderBottomRight = new JoystickButton(operatorJoystick, Constants.OPERATOR_SHOULDER_BOTTOM_RIGHT);
+    JoystickButton operatorMidLeft = new JoystickButton(operatorJoystick, Constants.OPERATOR_MID_LEFT);
     //JoystickButton operatorLeftJoystick = new JoystickButton(operatorJoystick, Constants.OPERATOR_LEFT_JOYSTICK);
     //JoystickButton operatorRightJoystick = new JoystickButton(operatorJoystick, Constants.OPERATOR_RIGHT_JOYSTICK);
 
     //button command links
     operatorUp.whenPressed(new ShootHigh(shooter)); //set shooter motor to shoot to high goal
-    operatorUp.whenReleased(new ShootOff(shooter)); //turn off shooter motor
+    //operatorUp.whenReleased(new ShootOff(shooter)); //turn off shooter motor
     operatorDown.whenPressed(new ShootLow(shooter)); //set shooter motor to shoot to low goal
-    operatorDown.whenReleased(new ShootOff(shooter)); // tuirn off shooter motor
+    //operatorDown.whenReleased(new ShootOff(shooter)); // tuirn off shooter motor
+    operatorMidLeft.whenPressed(new ShootOff(shooter));
     operatorShoulderTopLeft.whenPressed(new Shoot(shooter)); //feed balls into shooter while button is held
     operatorShoulderTopRight.whenPressed(new TriggerOff(shooter)); //feed balls into shooter while button is held
     operatorLeft.whenPressed(new IntakeOff()); //turn off intake
@@ -163,6 +171,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
  
-    return chooser.getSelected();
+    //return chooser.getSelected();
+    return driveBackTimed;
   }
 }

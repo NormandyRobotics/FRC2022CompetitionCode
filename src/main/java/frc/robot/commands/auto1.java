@@ -17,6 +17,6 @@ public class auto1 extends SequentialCommandGroup {
   public auto1(Drivetrain driveTrain, Shooter shooter) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new ShootHigh(shooter));
+    addCommands(new ShootTimed(shooter),new DriveBackTimed(driveTrain));
   }
 }

@@ -66,14 +66,16 @@ public final class Constants {
 	public static final int OPERATOR_DOWN = 2;
 	public static final int OPERATOR_SHOULDER_BOTTOM_LEFT = 7;
 	public static final int OPERATOR_SHOULDER_BOTTOM_RIGHT = 8;
-	public static final int OPERATOR_LEFT_JOYSTICK = 9;
-	public static final int OPERATOR_RIGHT_JOYSTICK = 10;
+	public static final int OPERATOR_MID_LEFT = 9;
+	public static final int OPERATOR_MID_RIGHT = 10;
+	public static final int OPERATOR_LEFT_JOYSTICK = 11;
+	public static final int OPERATOR_RIGHT_JOYSTICK = 12;
 
 
 
 	//Drivetrain constants
-	public static final double DRIVETRAINSPEED = 1;  //max speed at 100%
-	public static final double H_DRIVE_SPEED = 0.75; //h drive speed at 75%
+	public static final double DRIVETRAINSPEED = 1.0;  //max speed at 100%
+	public static final double H_DRIVE_SPEED = 1.0; //h drive speed at 75%
 
 	//Camera constants
 	public static final int CAMERA_RES_X = 320;
@@ -118,7 +120,7 @@ public final class Constants {
 
 
 
-
+	public static final double AUTO_DRIVEBACK = 2.5;
 
 
 

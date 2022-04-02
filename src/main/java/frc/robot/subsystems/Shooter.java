@@ -17,7 +17,7 @@ public class Shooter extends SubsystemBase {
   /** Creates a new Shooter. */
   public CANSparkMax shooterMotor;
   public Encoder shooterEncoder;
-  VictorSPX feedMotor;
+  public VictorSPX feedMotor;
 
  
 
@@ -52,6 +52,13 @@ public class Shooter extends SubsystemBase {
     feedMotor.set(ControlMode.PercentOutput, 0.0);
 
   }
+
+  public void shootTimed()
+  {
+
+
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
